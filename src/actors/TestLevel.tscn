@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/scripts/scrollingbg.gd" type="Script" id=2]
+[ext_resource path="res://src/actors/Moon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/scrollingBackground.png" type="Texture" id=4]
+[ext_resource path="res://src/actors/KinematicMoon.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 516.747, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 17.6529, 312.479 )
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="scrollingbg1" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+centered = false
+script = ExtResource( 2 )
+
+[node name="scrollingbg2" type="Sprite" parent="."]
+position = Vector2( 1024, 0 )
+texture = ExtResource( 4 )
+centered = false
+script = ExtResource( 2 )
+
+[node name="KinematicMoon" parent="." instance=ExtResource( 5 )]
+position = Vector2( 663.707, 268.839 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 422.046, 236.839 )
+
+[node name="Moon" parent="." instance=ExtResource( 3 )]
+position = Vector2( 593.782, 168.369 )
+
+[node name="Borders" type="StaticBody2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders"]
+position = Vector2( 515.958, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders"]
+position = Vector2( 515.958, 600 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Borders"]
+position = Vector2( 0, 303.339 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Borders"]
+position = Vector2( 1024, 303.339 )
+shape = SubResource( 2 )
