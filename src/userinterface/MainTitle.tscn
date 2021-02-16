@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
+
+[sub_resource type="Theme" id=1]
+
+[node name="MainTitle" type="Label"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -151.5
+margin_right = 151.5
+margin_bottom = 77.0001
+theme = SubResource( 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Stronger together"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

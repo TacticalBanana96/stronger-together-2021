@@ -5,17 +5,16 @@ const MAX_SPEED = 300
 const FRICTION = 300
 var _velocity = Vector2.ZERO
 
-
-
+		
 func _physics_process(delta: float) -> void:
+	
 	var direction: = get_direction()
 	if direction != Vector2.ZERO:
 		_velocity = _velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 	else:
 		_velocity = Vector2.move_toward(Vector2.ZERO, FRICTION * delta)
-		
 	move()
-
+	
 func get_direction() -> Vector2:
 	return Vector2(
 	int(Input.get_action_strength("move_right")) - int(Input.get_action_strength("move_left")),
