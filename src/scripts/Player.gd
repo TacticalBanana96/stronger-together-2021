@@ -5,7 +5,9 @@ const MAX_SPEED = 300
 const FRICTION = 300
 var _velocity = Vector2.ZERO
 
-		
+func _on_MeteorDetector_body_entered(body: Node) -> void:
+	die()
+	
 func _physics_process(delta: float) -> void:
 	
 	var direction: = get_direction()
@@ -34,4 +36,7 @@ func calculate_move_velocity(
 	return out
 
 func die() -> void:
+	get_node("CollisionShape2D").disabled = true
 	queue_free()
+
+

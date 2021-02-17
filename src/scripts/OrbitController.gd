@@ -1,4 +1,4 @@
-tool
+#tool
 extends Node2D
 
 export var radius = Vector2.ONE * 256 
