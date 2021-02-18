@@ -1,20 +1,21 @@
 #tool
 extends Node2D
 
-export var radius = Vector2.ONE * 256 
+export var radius = Vector2.ONE * 100 
 export var rotation_duration := 4.0 
 
 var moons = [] 
 var orbit_angle_offset = 0 
 var prev_child_count = 0 
+var moonSize
 
 func _physics_process(delta):
 	if prev_child_count != get_child_count():
 		prev_child_count = get_child_count()
 		_find_moons()
 	
-	
-	
+	#rotation_duration = stepify((rotation_duration - (0.3 * moons.size())), 0.01)
+	print(rotation_duration)
 	orbit_angle_offset += 2 * PI * delta / float(rotation_duration)
 	orbit_angle_offset = wrapf(orbit_angle_offset, -PI, PI)
 	_update_moons()

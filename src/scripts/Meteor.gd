@@ -6,17 +6,21 @@ var _velocity = Vector2.ZERO
 
 func _ready() -> void:
 	_velocity.x = -MAX_SPEED
+	Events.connect("player_hit_meteor", self, "_on_Player_player_hit_meteor")
+	Events.connect("moon_hit_meteor", self, "_on_Moon_moon_hit_meteor")
 	
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	print("Screen exited")
 	die()
 	
-func _on_Player_player_hit_meteor() -> void:
-	die()
+func _on_Player_player_hit_meteor(name) -> void:
+	if self.name == name:
+		die()
 
 
-func _on_Moon_moon_hit_meteor() -> void:
-	die()
+func _on_Moon_moon_hit_meteor(name) -> void:
+	if self.name == name:
+		die()
 	
 func _on_HitDetector_body_entered(body: Node) -> void:
 	# TODO: Check to make sure moon or player hit the enemy

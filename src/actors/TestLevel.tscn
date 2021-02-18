@@ -43,9 +43,6 @@ position = Vector2( 498.318, 236.839 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 422.046, 236.839 )
 
-[node name="Moon2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 422.046, 156.23 )
-
 [node name="EnemySpawner" parent="." instance=ExtResource( 3 )]
 
 [node name="Borders" type="StaticBody2D" parent="."]
@@ -67,9 +64,14 @@ shape = SubResource( 2 )
 position = Vector2( 1024, 303.339 )
 shape = SubResource( 2 )
 
+[node name="Moon2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 438.046, 156.23 )
+
 [node name="Meteor" parent="." instance=ExtResource( 6 )]
 position = Vector2( 933.704, 236.839 )
-[connection signal="grabbed_by_player" from="Moon" to="Player" method="_on_Moon_grabbed_by_player"]
-[connection signal="moon_hit_meteor" from="Moon" to="Meteor" method="_on_Moon_moon_hit_meteor"]
-[connection signal="collected_moon" from="Player" to="Moon" method="_on_Player_collected_moon"]
-[connection signal="player_hit_meteor" from="Player" to="Meteor" method="_on_Player_player_hit_meteor"]
+
+[node name="Moon4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 263.706, 184.416 )
+
+[node name="Moon3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 388.432, 415.159 )

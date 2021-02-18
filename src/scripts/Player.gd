@@ -1,23 +1,27 @@
 extends KinematicBody2D
 
-signal collected_moon()
-signal player_hit_meteor()
-
 const MOON = preload("res://src/actors/Moon.tscn")
 const ACCELERATION = 2000
 const MAX_SPEED = 300
 const FRICTION = 300
 var _velocity = Vector2.ZERO
 
-func _on_Moon_grabbed_by_player() -> void:
+func _ready() -> void:
+	Events.connect("grabbed_by_player", self, "_on_Moon_grabbed_by_player")
+
+func _on_Moon_grabbed_by_player(name) -> void:
 	spawnMoon()
 
 func _on_MeteorDetector_body_entered(body: Node) -> void:
+	print('COLLISION WITH PLAYER ',body.name)
+	print('COLLISION WITH PLAYER ',body.get_groups())
 	if body.is_in_group("meteors"):
-		emit_signal("player_hit_meteor")
+		Events.emit_signal("player_hit_meteor" , body.name)
 		die()
 	if body.is_in_group("moons") && !is_a_parent_of(body):
-		emit_signal("collected_moon")
+		print('EMITTING SIGNAL collected_moon' )
+		Events.emit_signal("collected_moon", body.name)
+		
 	
 func _physics_process(delta: float) -> void:
 	

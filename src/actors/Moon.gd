@@ -1,8 +1,5 @@
 extends KinematicBody2D
 
-signal grabbed_by_player()
-signal moon_hit_meteor()
-
 const ACCELERATION = 2000
 const MAX_SPEED = 300
 const FRICTION = 300
@@ -13,13 +10,19 @@ var rotation_point = Vector2(593.782,252.839)
 var rotation_around_point = 0
 var distance_from_point = 100
 
-func _on_Player_collected_moon() -> void:
-	emit_signal("grabbed_by_player")
-	die()
+func _ready() -> void:
+	Events.connect("collected_moon", self, "_on_Player_collected_moon")
+
+func _on_Player_collected_moon(name) -> void:
+	if(self.name == name):
+		Events.emit_signal("grabbed_by_player", self.name)
+		die()
 
 func _on_Area2D_body_entered(body: Node) -> void:
+	print('COLLISION WITH MOON ',body.name)
+	print('COLLISION WITH MOON ',body.get_groups())
 	if body.is_in_group("meteors"):
-		emit_signal("moon_hit_meteor")
+		Events.emit_signal("moon_hit_meteor", body.name)
 		die()
 	#elif body.is_in_group("player"):
 		# TODO: check if this can become child of player
