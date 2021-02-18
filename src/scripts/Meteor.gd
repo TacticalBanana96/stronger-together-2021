@@ -8,12 +8,20 @@ func _ready() -> void:
 	_velocity.x = -MAX_SPEED
 	
 func _on_VisibilityNotifier2D_screen_exited() -> void:
+	print("Screen exited")
+	die()
+	
+func _on_Player_player_hit_meteor() -> void:
 	die()
 
+
+func _on_Moon_moon_hit_meteor() -> void:
+	die()
+	
 func _on_HitDetector_body_entered(body: Node) -> void:
 	# TODO: Check to make sure moon or player hit the enemy
-	if body.is_in_group("moons"):
-		die()
+	print('meteor', body.get_groups())
+	print('meteor',body.name)
 	
 
 func _physics_process(delta: float) -> void:
@@ -22,5 +30,10 @@ func _physics_process(delta: float) -> void:
 func die() -> void:
 	get_node("CollisionShape2D").disabled = true
 	queue_free()
+
+
+
+
+
 
 
