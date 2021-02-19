@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/scripts/scrollingbg.gd" type="Script" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://src/scripts/AudioStreamPlayer.gd" type="Script" id=8]
 [ext_resource path="res://src/scripts/AudioController.gd" type="Script" id=9]
 [ext_resource path="res://src/scripts/Camera2D.gd" type="Script" id=10]
+[ext_resource path="res://src/scripts/Health.gd" type="Script" id=11]
+[ext_resource path="res://src/scripts/Score.gd" type="Script" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 516.747, 10 )
@@ -27,6 +29,7 @@ __meta__ = {
 anchor_mode = 0
 current = true
 script = ExtResource( 10 )
+target = NodePath("..")
 
 [node name="scrollingbg1" type="Sprite" parent="."]
 texture = ExtResource( 4 )
@@ -76,3 +79,9 @@ script = ExtResource( 8 )
 
 [node name="Explosion" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource( 5 )
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource( 11 )
+
+[node name="Score" type="Node2D" parent="."]
+script = ExtResource( 12 )

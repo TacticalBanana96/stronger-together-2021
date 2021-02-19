@@ -29,11 +29,13 @@ func _process(delta: float) -> void:
 	if meteorSpawnCount > 0 && fmod(meteorSpawnCount, 30) == 0:
 		meteorDeltaTime = meteorDeltaTime /2.0
 		print("New TIMES", moonDeltaTime, meteorDeltaTime)
-		set_wait_timers(moonDeltaTime, meteorDeltaTime) 
+		set_wait_timers(moonDeltaTime, meteorDeltaTime)
+		meteorSpawnCount = 0 
 	if moonSpawnCount > 0 && fmod(moonSpawnCount, 20) == 0:
 		moonDeltaTime = moonDeltaTime / 2.0
 		print("New TIMES", moonDeltaTime, meteorDeltaTime)
 		set_wait_timers(moonDeltaTime, meteorDeltaTime) 
+		moonSpawnCount = 0
 		
 
 func spawn(object):
