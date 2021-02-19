@@ -10,7 +10,6 @@ func _ready() -> void:
 	Events.connect("moon_hit_meteor", self, "_on_Moon_moon_hit_meteor")
 	
 func _on_VisibilityNotifier2D_screen_exited() -> void:
-	print("Screen exited")
 	die()
 	
 func _on_Player_player_hit_meteor(name) -> void:
@@ -24,9 +23,7 @@ func _on_Moon_moon_hit_meteor(name) -> void:
 	
 func _on_HitDetector_body_entered(body: Node) -> void:
 	# TODO: Check to make sure moon or player hit the enemy
-	print('meteor', body.get_groups())
-	print('meteor',body.name)
-	
+	pass
 
 func _physics_process(delta: float) -> void:
 	_velocity.y = move_and_slide(_velocity, Vector2.UP).y

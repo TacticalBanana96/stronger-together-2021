@@ -15,7 +15,7 @@ func _physics_process(delta):
 		_find_moons()
 	
 	#rotation_duration = stepify((rotation_duration - (0.3 * moons.size())), 0.01)
-	print(rotation_duration)
+	#print(rotation_duration)
 	orbit_angle_offset += 2 * PI * delta / float(rotation_duration)
 	orbit_angle_offset = wrapf(orbit_angle_offset, -PI, PI)
 	_update_moons()
