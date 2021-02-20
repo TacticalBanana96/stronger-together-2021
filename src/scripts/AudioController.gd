@@ -18,9 +18,7 @@ func _process(delta: float) -> void:
 		backgroundMusic.play()
 
 func _play_explosion_sound(body):
-	print("EXPLOSION")
 	explosionSound.play()
 
 func _play_collected_sound(name):
-	print("COLLECTED")
 	moonCollectedSound.play()

@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 const MOON = preload("res://src/actors/Moon.tscn")
-const ACCELERATION = 2000
+const ACCELERATION = 3000
 const MAX_SPEED = 400
 const FRICTION = 300
 var _velocity = Vector2.ZERO

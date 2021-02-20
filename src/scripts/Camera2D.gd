@@ -21,7 +21,7 @@ func _on_Moon_hit_meteor(scpreIncreased):
 	add_trauma(0.3)
 
 func add_trauma(amount):
-	trauma = min(trauma + amount, 0.5)
+	trauma = min(trauma + amount, 0.4)
 	
 func _process(delta):
 	if target:

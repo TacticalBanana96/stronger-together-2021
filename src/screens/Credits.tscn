@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://src/userinterface/ChangeSceneButton.gd" type="Script" id=1]
+[ext_resource path="res://src/scripts/scrollingbg.gd" type="Script" id=1]
 [ext_resource path="res://src/userinterface/ChangeSceneButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/fonts/interfaceTheme.tres" type="Theme" id=3]
 [ext_resource path="res://assets/fonts/ui_theme.tres" type="Theme" id=4]
@@ -9,18 +9,21 @@
 [node name="Credits" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 2579.95, 766.698 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackgroundImage" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="scrollingbg1" type="Sprite" parent="."]
 texture = ExtResource( 5 )
-stretch_mode = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
+centered = false
+script = ExtResource( 1 )
+
+[node name="scrollingbg2" type="Sprite" parent="."]
+position = Vector2( 1024, 0 )
+texture = ExtResource( 5 )
+centered = false
+script = ExtResource( 1 )
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -56,15 +59,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ChangeSceneButton2" type="Button" parent="MainMenu" instance=ExtResource( 2 )]
+[node name="ChangeSceneButton2" parent="MainMenu" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 74.0
 margin_bottom = 29.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 text = "MENU"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 next_scene_path = "res://src/screens/MainScreen.tscn"
-[connection signal="button_up" from="MainMenu/ChangeSceneButton2" to="MainMenu/ChangeSceneButton2" method="_on_ChangeSceneButton_button_up"]

@@ -42,7 +42,6 @@ func _physics_process(delta: float) -> void:
 	#if self.position.x == -1:
 		#Events.emit_signal("damage_done", damage)
 	if self.position.x < -100:
-		print("DAMAGE", damage)
 		Events.emit_signal("damage_done", damage)
 		die()
 	_velocity.y = move_and_slide(_velocity, Vector2.UP).y

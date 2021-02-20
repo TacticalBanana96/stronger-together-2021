@@ -26,7 +26,6 @@ func _on_Area2D_body_entered(body: Node) -> void:
 
 func _physics_process(delta: float) -> void:
 	if self.position.x < -100:
-		print("moon exited screen")
 		die()
 	_velocity.y = move_and_slide(_velocity, Vector2.UP).y
 

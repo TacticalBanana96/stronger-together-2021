@@ -28,11 +28,14 @@ func _update_moons():
 			var new_position = Vector2()
 			new_position.x = cos(spacing * i + orbit_angle_offset) * radius.x
 			new_position.y = sin(spacing * i + orbit_angle_offset) * radius.y
-			moons[i].position = new_position
+			if moons[i]:
+				#checking is moon still exists before placing
+				moons[i].position = new_position
+				
 
 
 func _find_moons():
 	moons = []
 	for child in get_children():
-		if child.is_in_group("moons"):
+		if child.is_in_group("moons") || child.is_in_group("meteors") :
 			moons.append(child)

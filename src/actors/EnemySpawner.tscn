@@ -17,6 +17,11 @@ autostart = true
 [node name="MediumMeteorTimer" type="Timer" parent="."]
 wait_time = 15.0
 autostart = true
+
+[node name="BossTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="MoonTimer" to="." method="_on_MoonTimer_timeout"]
 [connection signal="timeout" from="MediumMeteorTimer" to="." method="_on_MediumMeteorTimer_timeout"]
+[connection signal="timeout" from="BossTimer" to="." method="_on_BossTimer_timeout"]

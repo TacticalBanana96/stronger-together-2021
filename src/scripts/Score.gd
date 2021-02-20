@@ -14,7 +14,6 @@ func _ready() -> void:
 
 
 func _on_score(scoreIncrease):
-	print("UPDATING SCORE",scoreIncrease)
 	var score = 5
 	#if body.is_in_group("meteors"):
 	#	score = 5
