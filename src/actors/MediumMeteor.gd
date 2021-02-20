@@ -1,6 +1,5 @@
 extends "res://src/scripts/Meteor.gd"
 
-var MAX_SPEED = 200
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"
@@ -8,7 +7,7 @@ var MAX_SPEED = 200
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	MAX_SPEED = 200
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
