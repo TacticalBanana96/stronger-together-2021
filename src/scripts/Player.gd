@@ -8,6 +8,8 @@ var _velocity = Vector2.ZERO
 
 func _ready() -> void:
 	Events.connect("grabbed_by_player", self, "_on_Moon_grabbed_by_player")
+	var animationPlayer = $AnimationPlayer
+	animationPlayer.play("idle")
 
 func _on_Moon_grabbed_by_player(name) -> void:
 	spawnMoon()
@@ -16,7 +18,7 @@ func _on_MeteorDetector_body_entered(body: Node) -> void:
 	#print('COLLISION WITH PLAYER ',body.name)
 	#print('COLLISION WITH PLAYER ',body.get_groups())
 	if body.is_in_group("meteors"):
-		Events.emit_signal("player_hit_meteor" , body.name)
+		Events.emit_signal("player_hit_meteor" , body)
 		die()
 	if body.is_in_group("moons") && !is_a_parent_of(body):
 		Events.emit_signal("collected_moon", body.name)

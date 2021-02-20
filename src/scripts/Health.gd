@@ -20,6 +20,7 @@ func _on_damage(amount):
 		currentHealth = 0
 	else: 
 		currentHealth -= amount
+	print("Current health", currentHealth)
 	Events.emit_signal("health_updated", currentHealth)
 	
 

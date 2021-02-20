@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/bar_fill.png" type="Texture" id=1]
+[ext_resource path="res://assets/bar_bg.png" type="Texture" id=2]
+[ext_resource path="res://src/userinterface/Bar.gd" type="Script" id=3]
+
+[node name="Bar" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+margin_right = 248.0
+margin_bottom = 40.0
+value = 100.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 1 )

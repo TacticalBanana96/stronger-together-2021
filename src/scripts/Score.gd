@@ -9,11 +9,24 @@ var currentScore
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	currentScore = 0
+	#TODO: make sure moon is child of player before awarding this point
 	Events.connect("moon_hit_meteor", self, "_on_score")
 
 
-func _on_score(score):
+func _on_score(body):
+	var score
+	if body.is_in_group("meteors"):
+		score = 5
+	elif body.is_in_group("medium_meteors"):
+		score = 10
+	elif body.is_in_group("large_meteors"):
+		score = 20
+	else:
+		score = 0
+		print('Collision not mapped', body.name)
+	
 	currentScore += score
+	
 	Events.emit_signal("score_updated", currentScore)
 	
 

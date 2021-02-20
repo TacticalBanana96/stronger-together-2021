@@ -2,7 +2,7 @@
 extends Node2D
 
 export var radius = Vector2.ONE * 100 
-export var rotation_duration := 4.0 
+export var rotation_duration := 2.0 
 
 var moons = [] 
 var orbit_angle_offset = 0 

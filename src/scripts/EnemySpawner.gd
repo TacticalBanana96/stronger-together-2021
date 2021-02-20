@@ -7,8 +7,8 @@ var rng = RandomNumberGenerator.new()
 var meteorSpawnCount: int = 0
 var moonSpawnCount: int = 0
 
-var moonDeltaTime = 4.0
-var meteorDeltaTime = 2.0
+var moonDeltaTime = 2.0
+var meteorDeltaTime = 3.0
 
 onready var meterorTimer = get_node("MeteorTimer")
 onready var moonTimer = get_node("MoonTimer")

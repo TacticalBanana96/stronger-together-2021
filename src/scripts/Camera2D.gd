@@ -14,11 +14,11 @@ func _ready():
 	Events.connect("player_hit_meteor", self, "_on_Player_hit_meteor")
 	Events.connect("moon_hit_meteor", self, "_on_Moon_hit_meteor")
 
-func _on_Player_hit_meteor(name):
-	add_trauma(0.5) 
+func _on_Player_hit_meteor(body):
+	add_trauma(0.4) 
 
-func _on_Moon_hit_meteor(name):
-	add_trauma(0.4)
+func _on_Moon_hit_meteor(body):
+	add_trauma(0.3)
 
 func add_trauma(amount):
 	trauma = min(trauma + amount, 1.0)

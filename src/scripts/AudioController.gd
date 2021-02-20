@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	if backgroundMusic.playing == false:
 		backgroundMusic.play()
 
-func _play_explosion_sound(name):
+func _play_explosion_sound(body):
 	print("EXPLOSION")
 	explosionSound.play()
 

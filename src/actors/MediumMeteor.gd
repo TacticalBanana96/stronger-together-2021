@@ -1,6 +1,6 @@
-extends Control
+extends "res://src/scripts/Meteor.gd"
 
-
+var MAX_SPEED = 200
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"
@@ -8,11 +8,9 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Events.connect("health_updated", self, "_on_heath_updated")
-	Events.connect("score_updated", self, "_on_score_updated")
-
-func _on_heath_updated(newHealth):
 	pass
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 #	pass
