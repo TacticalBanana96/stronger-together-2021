@@ -17,8 +17,10 @@ func _on_Player_collected_moon(name) -> void:
 func _on_Area2D_body_entered(body: Node) -> void:
 	#print('COLLISION WITH MOON ',body.name)
 	#print('COLLISION WITH MOON ',body.get_groups())
-	if body.is_in_group("meteors"):
+	if body.is_in_group("meteors") || body.is_in_group("medium_meteors"):
 		Events.emit_signal("moon_hit_meteor", body)
+		if self.get_parent().name == 'OrbitController':	
+			Events.emit_signal("score_increased", body.score)
 		die()
 
 

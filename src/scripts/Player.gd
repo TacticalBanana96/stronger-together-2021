@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const MOON = preload("res://src/actors/Moon.tscn")
 const ACCELERATION = 2000
-const MAX_SPEED = 300
+const MAX_SPEED = 400
 const FRICTION = 300
 var _velocity = Vector2.ZERO
 
@@ -19,6 +19,7 @@ func _on_MeteorDetector_body_entered(body: Node) -> void:
 	#print('COLLISION WITH PLAYER ',body.get_groups())
 	if body.is_in_group("meteors"):
 		Events.emit_signal("player_hit_meteor" , body)
+		Events.emit_signal("game_over")
 		die()
 	if body.is_in_group("moons") && !is_a_parent_of(body):
 		Events.emit_signal("collected_moon", body.name)

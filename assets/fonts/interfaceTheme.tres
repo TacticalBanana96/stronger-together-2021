@@ -4,8 +4,8 @@
 
 [resource]
 default_font = ExtResource( 1 )
-Label/colors/font_color = Color( 1, 1, 1, 1 )
-Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_color = Color( 1, 0.917647, 0.917647, 1 )
+Label/colors/font_color_shadow = Color( 0.611765, 0.0431373, 0.0431373, 0 )
 Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
 Label/constants/line_spacing = 3
 Label/constants/shadow_as_outline = 0

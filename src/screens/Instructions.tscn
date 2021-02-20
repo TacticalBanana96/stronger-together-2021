@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/userinterface/ChangeSceneButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/interfaceTheme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/fonts/ui_theme.tres" type="Theme" id=4]
+[ext_resource path="res://assets/scrollingBackground.png" type="Texture" id=5]
+[ext_resource path="res://assets/instructions.png" type="Texture" id=6]
+
+[node name="Instructions" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_horizontal_guides_": [ 445.332, 274.718 ],
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="VBoxContainer" parent="."]
+anchor_left = 0.693
+anchor_top = 0.431
+anchor_right = 0.693
+anchor_bottom = 0.431
+margin_left = -427.632
+margin_top = 184.4
+margin_right = -324.632
+margin_bottom = 211.4
+rect_scale = Vector2( 4.61764, 4.06607 )
+theme = ExtResource( 4 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeSceneButton" parent="MainMenu" instance=ExtResource( 2 )]
+margin_right = 103.0
+margin_bottom = 27.0
+text = "continue"
+next_scene_path = "res://src/actors/TestLevel.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -342.0
+margin_right = 343.0
+margin_bottom = 279.0
+color = Color( 0, 0, 0, 0.356863 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -334.833
+margin_top = 4.00452
+margin_right = 631.167
+margin_bottom = 358.005
+rect_scale = Vector2( 0.692679, 0.729006 )
+theme = ExtResource( 3 )
+text = "Tons of asteroids are rushing towards your solar system!
+
+With the help of your moons you must destroy them before they demolish every planet
+
+collect your moons and use them to smash the asteroids apart!!"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -172.444
+margin_top = 253.174
+margin_right = -172.444
+margin_bottom = -176.826
+rect_scale = Vector2( 1.5623, 1.49523 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

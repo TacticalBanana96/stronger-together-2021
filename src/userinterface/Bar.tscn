@@ -18,3 +18,5 @@ margin_bottom = 40.0
 value = 100.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 1 )
+tint_under = Color( 0.552941, 1, 0.901961, 0.521569 )
+tint_progress = Color( 0.713726, 0.815686, 0.627451, 0.313726 )

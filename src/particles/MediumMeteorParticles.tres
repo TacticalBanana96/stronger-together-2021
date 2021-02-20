@@ -1,0 +1,29 @@
+[gd_resource type="ParticlesMaterial" load_steps=5 format=2]
+
+[ext_resource path="res://src/particles/particleGradient.tres" type="Gradient" id=1]
+
+[sub_resource type="GradientTexture" id=4]
+gradient = ExtResource( 1 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.993846, 0.0818181 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[resource]
+emission_shape = 2
+emission_box_extents = Vector3( 32, 32, 1 )
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 300.0
+angular_velocity = 350.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 25.0
+angle = 45.0
+scale = 10.0
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 4 )

@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/userinterface/Interface.gd" type="Script" id=1]
 [ext_resource path="res://src/userinterface/Counter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/userinterface/Bar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/userinterface/ChangeSceneButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/userinterface/MainTitle.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/userinterface/QuitButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/fonts/ui_theme.tres" type="Theme" id=9]
 
 [node name="Interface" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -13,8 +18,10 @@ __meta__ = {
 }
 
 [node name="Bars" type="VBoxContainer" parent="."]
-margin_right = 248.0
-margin_bottom = 40.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 268.0
+margin_bottom = 60.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -25,8 +32,10 @@ margin_right = 248.0
 [node name="Counters" type="HBoxContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -120.0
-margin_bottom = 40.0
+margin_left = -144.0
+margin_top = 20.0
+margin_right = -23.9999
+margin_bottom = 60.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -34,3 +43,49 @@ __meta__ = {
 [node name="Counter" parent="Counters" instance=ExtResource( 2 )]
 margin_right = 120.0
 margin_bottom = 40.0
+
+[node name="PausedOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 9 )
+color = Color( 0, 0, 0, 0.313726 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainTitle" parent="PausedOverlay" instance=ExtResource( 7 )]
+margin_left = -312.817
+margin_top = 81.0102
+margin_right = -213.817
+margin_bottom = 110.01
+rect_scale = Vector2( 6.52207, 3.98913 )
+text = "Paused"
+
+[node name="PausedMenu" type="VBoxContainer" parent="PausedOverlay"]
+anchor_left = 0.693
+anchor_top = 0.431
+anchor_right = 0.693
+anchor_bottom = 0.431
+margin_left = -361.652
+margin_top = -43.6
+margin_right = -287.652
+margin_bottom = 17.4
+rect_scale = Vector2( 4.61764, 4.06607 )
+theme = ExtResource( 9 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeSceneButton2" parent="PausedOverlay/PausedMenu" instance=ExtResource( 6 )]
+margin_right = 74.0
+margin_bottom = 28.0
+text = "MENU"
+next_scene_path = "res://src/screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="PausedOverlay/PausedMenu" instance=ExtResource( 8 )]
+margin_top = 32.0
+margin_right = 74.0
+margin_bottom = 61.0
+text = "QUIT"
